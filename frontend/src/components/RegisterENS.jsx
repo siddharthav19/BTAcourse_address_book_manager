@@ -16,6 +16,9 @@ const RegisterENS = ({ state }) => {
           if (addressResolved === null) {
                console.log('The Given ENS Doesnot exists in the real world');
                setENSnotFound(`${ENS} not exists/registered in the real world`);
+               setTimeout(() => {
+                    setENSnotFound("");
+               }, 3000);
                return;
           }
           const transaction = await contract.addEntry(ENS, preferred);
